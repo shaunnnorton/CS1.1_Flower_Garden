@@ -1,28 +1,5 @@
 #pylint:disable=E1101
 import turtle as jerry
-
-
-def draw_flower(x, y, num_petals, petal_size, color, petal_length):
-    """This function draws a flower using turtle graphics"""
-
-    jerry.goto(x, y)
-    jerry.pencolor(color)
-    jerry.pensize(petal_size)
-
-    # draw petals
-    for _ in range(num_petals):
-        jerry.forward(petal_length)
-        jerry.backward(petal_length)
-        jerry.right(360/num_petals)
-
-    # draw center
-    jerry.pencolor("orange")
-    jerry.dot(50)
-
-
-#draw_flower(0, 0, 6, 40, "pink", 100)
-
-
 class Flower:
     """A Class for flowers"""
     def __init__(self,x,y,num_petals,color,petal_length,petal_size):
@@ -56,6 +33,7 @@ class Flower:
 
 class Tree:
     def __init__(self ,x,y,height,color,num_leaves,leaf_size,leaf_length,trunk_color="brown"):
+        """initialize the class"""
         self.x = x
         self.y = y
         self.height = height
@@ -70,6 +48,8 @@ class Tree:
         return 360/num_leaves
     
     def draw(self):
+        """Draws the Tree"""
+        jerry.setheading(0)
         jerry.penup()
         jerry.goto(self.x,self.y)
         jerry.pendown()
@@ -88,12 +68,17 @@ class Tree:
 
           
 
-Flower1 = Flower(-50,0,8,"purple",50,10)
-assert Flower1.get_turn_degrees(4)==90 , "get_turn_degrees returned the wrong value"
-Flower1.draw()
-Tree1 = Tree(50,0,90,"green",70,10,40)
-Tree1.draw()
-
-
+Flower1 = Flower(-300,0,5,"purple",50,10)
+Tree1 = Tree(300,0,100,"green",70,10,40)
+Flower2 = Flower(-200,0,8,"pink",50,10)
+Tree2 = Tree(200,0,150,"orange",30,10,40)
+Flower3 = Flower(-100,0,11,"red",50,10)
+Tree3 = Tree(100,0,300,"yellow",7,10,40)
+Flower1.draw() 
+Flower2.draw()  
+Flower3.draw()  
+Tree1.draw() 
+Tree2.draw() 
+Tree3.draw() 
 
 jerry.mainloop() 
