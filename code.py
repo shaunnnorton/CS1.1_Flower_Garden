@@ -65,7 +65,6 @@ class Tree:
             jerry.forward(self.leaf_length)
             jerry.backward(self.leaf_length)
             jerry.right(Tree.get_turn_degrees(self,self.num_leaves))
-
           
 
 Flower1 = Flower(-300,0,5,"purple",50,10)
@@ -80,5 +79,15 @@ Flower3.draw()
 Tree1.draw() 
 Tree2.draw() 
 Tree3.draw() 
+
+#Test for get_turn_degrees()
+assert Flower1.get_turn_degrees(4) == 90
+assert Flower1.get_turn_degrees(6) == 60
+assert Flower1.get_turn_degrees(360) == 1
+assert Flower1.get_turn_degrees(5) == 72
+
+
+
+
 
 jerry.mainloop() 
